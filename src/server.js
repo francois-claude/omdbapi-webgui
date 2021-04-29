@@ -138,20 +138,16 @@ app.get("/reviews", function (req, res) {
   db.any(selectQuery)
 
     .then((rows) => {
-      console.log(req.query);
 
       if (req.query.movie_title) {
         var queryLength = req.query.movie_title.length;
 
         var filterRows = rows.filter(function (row) {
-          console.log(row.movie_name);
-
           return (
             row.movie_name.toLowerCase().slice(0, queryLength) ===
             req.query.movie_title.toLowerCase()
           );
         });
-        console.log(filterRows);
         res.render("pages/reviews", {
           my_title: "Movie Reviews",
           data: filterRows.length ? filterRows : rows,
@@ -177,3 +173,5 @@ app.get("/reviews", function (req, res) {
 const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Express running → PORT ${server.address().port}`);
 });
+
+module.exports.server = server;
