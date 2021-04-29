@@ -5,5 +5,3 @@ CREATE TABLE IF NOT EXISTS reviews (
     movie_review TEXT NOT NULL,
     review_date TEXT NOT NULL
 );
-
-
