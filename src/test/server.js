@@ -37,4 +37,20 @@ describe("Server!", () => {
         done();
       });
   });
+
+  // test if POST request works
+  it("Sends POST request to /addReview", (done) => {
+    chai
+      .request(server.server)
+      .post("/addReview")
+      .send({
+        timeDate: "testDate",
+        movieTitle: "testTitle",
+        movieReview: "testDate",
+      })
+      .end((err, response) => {
+        expect(response).to.have.status(200);
+        done();
+      });
+  });
 });
