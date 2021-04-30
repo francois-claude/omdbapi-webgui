@@ -1,13 +1,14 @@
-var express = require("express"); //Ensure our express framework has been added
+// reqs
+var express = require("express");
 var app = express();
-var bodyParser = require("body-parser"); //Ensure our body-parser tool has been added
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+var bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // set time zone
 process.env.TZ = "America/Denver";
 
-//Create Database Connection
+// db connection
 var pgp = require("pg-promise")();
 
 const dev_dbConfig = {
@@ -24,8 +25,6 @@ const dev_dbConfig = {
 const isProduction = process.env.NODE_ENV === "production";
 const dbConfig = isProduction ? process.env.DATABASE_URL : dev_dbConfig;
 
-// Heroku Postgres patch for v10
-// fixes: https://github.com/vitaly-t/pg-promise/issues/711
 if (isProduction) {
   pgp.pg.defaults.ssl = { rejectUnauthorized: false };
 }
@@ -109,7 +108,7 @@ app.get("/reviews", function (req, res) {
     });
 });
 
-//app.listen(3000);
+// expose port 3000
 const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Express running → PORT ${server.address().port}`);
 });
