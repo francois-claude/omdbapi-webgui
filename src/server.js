@@ -4,6 +4,9 @@ var bodyParser = require("body-parser"); //Ensure our body-parser tool has been 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
+// set time zone
+process.env.TZ = "America/Denver";
+
 //Create Database Connection
 var pgp = require("pg-promise")();
 
