@@ -1,8 +1,8 @@
 services:
-  # uncomment for heroku deployment
-  # heroku-cli:
-  #   build: ./heroku
-  #   env_file: ./heroku/.env
+  # uncomment below for heroku deployment
+  heroku-cli:
+    build: ./heroku
+    env_file: ./heroku/.env
 
   db:
     build: ./db
