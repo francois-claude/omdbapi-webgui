@@ -1,16 +1,9 @@
-
----
-
 # 3308 Individual Project
-
-## Description
 Full-stack project for CU Boulder CSCI 3308 Spring 2021
 
-### Heroku deployment
-https://omdbapi-3308-project.herokuapp.com/
-
-### Self-hosted deployment
-https://omdb.fclaude.net/
+### Deployments
+Heroku: https://omdbapi-3308-project.herokuapp.com/
+Self-hosted: https://omdb.fclaude.net/
 
 ### Setup
 
@@ -24,3 +17,7 @@ Run docker-compose script
 docker-compose up -d
 ```
 
+### Testing
+```bash
+docker-compose run web npm test
+```
