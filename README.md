@@ -15,10 +15,20 @@ docker-compose build
 
 Run docker-compose script
 ```bash
+docker-compose up
+```
+
+Run docker-compose script (detatched mode)
+```bash
 docker-compose up -d
 ```
 
-### Testing
+Kill service
+```bash
+docker-compose down
+```
+
+To run tests
 ```bash
 docker-compose run web npm test
 ```
