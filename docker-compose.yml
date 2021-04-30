@@ -1,5 +1,6 @@
 services:
   # uncomment below for heroku deployment
+  # (commented for code submission / review)
   # heroku-cli:
   #   build: ./heroku
   #   env_file: ./heroku/.env
