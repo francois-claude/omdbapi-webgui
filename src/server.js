@@ -79,7 +79,6 @@ app.get("/reviews", function (req, res) {
   db.any(selectQuery)
 
     .then((rows) => {
-
       if (req.query.movie_title) {
         var queryLength = req.query.movie_title.length;
 
@@ -115,4 +114,5 @@ const server = app.listen(process.env.PORT || 3000, () => {
   console.log(`Express running → PORT ${server.address().port}`);
 });
 
+module.exports.db = db;
 module.exports.server = server;
